@@ -14,8 +14,9 @@ w = obs.weather
 print(w.temperature('fahrenheit'))
 print(w.status)
 print(w.rain)
-temp = int(w.temperature('fahrenheit')["temp"])
-temp = 36
+temp = str(int(w.temperature('fahrenheit')["temp"]))
+
+
 print("TEMP: "+str(temp))
 now = dt.now()
 now = now.strftime("%H%M")
@@ -63,6 +64,28 @@ eightMin = mat.eightMin
 nineMin = mat.nineMin
 zeroMin = mat.zeroMin
 
+degSym = mat.degSym
+fSym = mat.fSym
+oneDeg = mat.oneDeg
+twoDeg = mat.twoDeg
+threeDeg = mat.threeDeg
+fourDeg = mat.fourDeg
+fiveDeg = mat.fiveDeg
+sixDeg = mat.sixDeg
+sevenDeg = mat.sevenDeg
+eightDeg = mat.eightDeg
+nineDeg = mat.nineDeg
+zeroDeg = mat.zeroDeg
+oneTenDeg = mat.oneTenDeg
+twoTenDeg = mat.twoTenDeg
+threeTenDeg = mat.threeTenDeg
+fourTenDeg = mat.fourTenDeg
+fiveTenDeg = mat.fiveTenDeg
+sixTenDeg = mat.sixTenDeg
+sevenTenDeg = mat.sevenTenDeg
+eightTenDeg = mat.eightTenDeg
+nineTenDeg = mat.nineTenDeg
+
 pm = mat.pm
 am = mat.am
 matrix = blankPage
@@ -73,91 +96,7 @@ hourOnes = int(now[1])
 minTens = int(now[2])
 minOnes = int(now[3])
 
-""" if((hourTens ==  0  and hourOnes ==  0 ) or (hourTens == 1 and hourOnes == 2)):
- 
-  matrixToShow.append(tenHour)
-  matrixToShow.append(twoHour)
-elif((hourTens ==  0  and hourOnes ==  1 ) or (hourTens == 1 and hourOnes == 3)):
-  
-  matrixToShow.append(oneHour)
-elif((hourTens ==  0  and hourOnes ==  2 ) or (hourTens == 1 and hourOnes == 4)):
-  
-  matrixToShow.append(twoHour)
-elif((hourTens ==  0  and hourOnes ==  3 ) or (hourTens == 1 and hourOnes == 5)):
- 
-  matrixToShow.append(threeHour)
-elif((hourTens ==  0  and hourOnes ==  4 ) or (hourTens == 1 and hourOnes == 6)):
-  
-  matrixToShow.append(fourHour)
-elif((hourTens ==  0  and hourOnes ==  5 ) or (hourTens == 1 and hourOnes == 7)):
-  
-  matrixToShow.append(fiveHour)
-elif((hourTens ==  0  and hourOnes ==  6 ) or (hourTens == 1 and hourOnes == 8)):
-  
-  matrixToShow.append(sixHour)
-elif((hourTens ==  0  and hourOnes ==  7 ) or (hourTens == 1 and hourOnes == 9)):
-  
-  matrixToShow.append(sevenHour) 
-elif((hourTens ==  0  and hourOnes ==  8 ) or (hourTens == 2 and hourOnes == 0)):
-  
-  matrixToShow.append(eightHour)
-elif((hourTens ==  0  and hourOnes ==  9 ) or (hourTens == 2 and hourOnes == 1)):
-  
-  matrixToShow.append(nineHour)
-elif((hourTens ==  1  and hourOnes ==  0 ) or (hourTens == 2 and hourOnes == 2)):
-  
-  matrixToShow.append(tenHour)
-  matrixToShow.append(zeroHour)
-else:
-  matrixToShow.append(tenHour)
-  matrixToShow.append(oneHour)
 
-matrixToShow.append(hourColon)
-
-if(minTens == 0):
-  matrixToShow.append(zeroTenMin)
-elif(minTens == 1):
-  matrixToShow.append(oneTenMin)
-elif(minTens == 2):
-  matrixToShow.append(twoTenMin)
-elif(minTens == 3):
-  matrixToShow.append(threeTenMin)
-elif(minTens == 4):
-  matrixToShow.append(fourTenMin)
-else:
-  matrixToShow.append(fiveTenMin)
-
-if(minOnes == 0):
-  matrixToShow.append(zeroMin)
-elif(minOnes == 1):
-  matrixToShow.append(oneMin)
-elif(minOnes == 2):
-  matrixToShow.append(twoMin)
-elif(minOnes == 3):
-  matrixToShow.append(threeMin)
-elif(minOnes == 4):
-  matrixToShow.append(fourMin)
-elif(minOnes == 5):
-  matrixToShow.append(fiveMin)
-elif(minOnes == 6):
-  matrixToShow.append(sixMin)
-elif(minOnes == 7):
-  matrixToShow.append(sevenMin)
-elif(minOnes == 8):
-  matrixToShow.append(eightMin)
-else:
-  matrixToShow.append(nineMin)
-
-if(hourTens >= 1 and hourOnes >= 3):
-  matrixToShow.append(pm)
-else:
-  matrixToShow.append(am)
-
-
-for i in range(1,len(matrixToShow)):
-  matrix = numpy.bitwise_and(matrix,matrixToShow[i])
-
- """
 
 #matrix = hourColon
 #matrix = oneHour
@@ -171,6 +110,9 @@ oldtime = oldtime.strftime("%H%M")
 oldtime = int(oldtime)
 checkTempThisHour = False
 while(1):
+
+  tenTemp = int(str(temp[0]))
+  oneTemp = int(str(temp[1]))
   print("TEMP: "+str(temp))
   now = dt.now()
   now = now.strftime("%H%M")
@@ -305,6 +247,46 @@ while(1):
     print("need to check temp")
     checkTempThisHour = False  
 
+  if(tenTemp == 1):
+    matrixToShow.append(oneTenDeg)
+  elif(tenTemp == 2):
+      matrixToShow.append(twoTenDeg)
+  elif(tenTemp == 3):
+      matrixToShow.append(threeTenDeg)
+  elif(tenTemp == 4):
+      matrixToShow.append(fourTenDeg)
+  elif(tenTemp == 5):
+      matrixToShow.append(fiveTenDeg)
+  elif(tenTemp == 6):
+      matrixToShow.append(sixTenDeg)
+  elif(tenTemp == 7):
+      matrixToShow.append(sevenTenDeg)
+  elif(tenTemp == 8):
+      matrixToShow.append(eightTenDeg)
+  elif(tenTemp == 9):
+      matrixToShow.append(nineTenDeg)
+
+  if(oneTemp == 1):
+      matrixToShow.append(oneDeg)
+  elif(oneTemp == 2):
+      matrixToShow.append(twoDeg)
+  elif(oneTemp == 3):
+      matrixToShow.append(threeDeg)
+  elif(oneTemp == 4):
+      matrixToShow.append(fourDeg)
+  elif(oneTemp == 5):
+      matrixToShow.append(fiveDeg)
+  elif(oneTemp == 6):
+      matrixToShow.append(sixDeg)
+  elif(oneTemp == 7):
+      matrixToShow.append(sevenDeg)
+  elif(oneTemp == 8):
+      matrixToShow.append(eightDeg)
+  elif(oneTemp == 9):
+      matrixToShow.append(nineDeg)
+
+  matrixToShow.append(degSym)
+  matrixToShow.append(fSym)
 
   for i in range(1,len(matrixToShow)):
     matrix = numpy.bitwise_and(matrix,matrixToShow[i])
