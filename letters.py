@@ -86,6 +86,8 @@ sevenTenDeg = mat.sevenTenDeg
 eightTenDeg = mat.eightTenDeg
 nineTenDeg = mat.nineTenDeg
 
+roseLogo = mat.roseLogo
+
 pm = mat.pm
 am = mat.am
 matrix = blankPage
@@ -287,6 +289,8 @@ while(1):
 
   matrixToShow.append(degSym)
   matrixToShow.append(fSym)
+  matrixToShow.append(roseLogo)
+
 
   for i in range(1,len(matrixToShow)):
     matrix = numpy.bitwise_and(matrix,matrixToShow[i])
@@ -299,10 +303,27 @@ while(1):
           for i in range(0,chan):
               #print("U: "+str(u)+" I: "+str(i))
               if(matrix[u][i] == 0):
-
+                if(i < 10):
+                  row.append(100)
+                  row.append(100)
+                  row.append(100)
+                elif(i > 10 and u > 16 and u < 50):
+                  if(int(temp) > 50):
+                    row.append(0)
+                    row.append(100)
+                    row.append(0)
+                  elif(int(temp) > 75):
+                    row.append(100)
+                    row.append(0)
+                    row.append(0)
+                  else:
+                    row.append(0)
+                    row.append(0)
+                    row.append(200)
+                else:
+                  row.append(128)
                   row.append(0)
                   row.append(0)
-                  row.append(255)
               else:
                   row.append(0)
                   row.append(0)
