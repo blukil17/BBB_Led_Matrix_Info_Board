@@ -7,3 +7,4 @@ npm install e131
 
 sudo pip3 install numpy
 sudo pip3 install datetime
+sudo pip3 install pyowm
