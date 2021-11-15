@@ -112,7 +112,8 @@ oldtime = oldtime.strftime("%H%M")
 oldtime = int(oldtime)
 checkTempThisHour = False
 while(1):
-
+  sender = sacn.sACNsender()  # provide an IP-Address to bind to if you are using Windows and want to use multicast
+  sender.start()  # start the sending thread
   tenTemp = int(str(temp[0]))
   oneTemp = int(str(temp[1]))
   print("TEMP: "+str(temp))
@@ -237,7 +238,7 @@ while(1):
   #print(checkTempThisHour)
   if( mins == 0):
     if(checkTempThisHour == False):
-      #print("CHECK TEMP")
+      print("CHECK TEMP")
       obs = mgr.weather_at_place('Terre Haute,US')
       w = obs.weather
       
@@ -332,6 +333,6 @@ while(1):
           rows[u-1] = row
           
           sender[u].dmx_data = rows[u-1]  # some test DMX data
-          time.sleep(.001)
-  time.sleep(10)
-sender.stop()  # do not forget to stop the sender
+          time.sleep(.01)
+  #time.sleep(10)
+  sender.stop()  # do not forget to stop the sender
