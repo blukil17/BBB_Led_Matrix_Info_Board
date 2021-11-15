@@ -113,8 +113,8 @@ oldtime = int(oldtime)
 checkTempThisHour = False
 while(1):
 
-  tenTemp = int(str(temp[0]))
-  oneTemp = int(str(temp[1]))
+  tenTemp = int(str(temp)[0])
+  oneTemp = int(str(temp)[1])
   print("TEMP: "+str(temp))
   now = dt.now()
   now = now.strftime("%H%M")
@@ -286,6 +286,8 @@ while(1):
       matrixToShow.append(eightDeg)
   elif(oneTemp == 9):
       matrixToShow.append(nineDeg)
+  elif(oneTemp == 0):
+    matrixToShow.append(zeroDeg)
 
   matrixToShow.append(degSym)
   matrixToShow.append(fSym)
