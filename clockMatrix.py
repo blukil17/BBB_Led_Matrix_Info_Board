@@ -6,7 +6,7 @@ import numberMatrices as mat
 from datetime import datetime as dt
 from pyowm import OWM
 
-owm = OWM('3b24d1aa54e347484dd75f5a97413688')
+owm = OWM('YOUR_API_KEY')
 mgr = owm.weather_manager()
 
 obs = mgr.weather_at_place('Terre Haute,US')
